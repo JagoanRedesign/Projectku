@@ -24,13 +24,7 @@ async def chk_usr(_, message: Message):
         or first_name != message.from_user.first_name
         or lastname_before != message.from_user.last_name
     ):
-        msg += f"""
-**🔓 ᴘʀᴇᴛᴇɴᴅᴇʀ ᴅᴇᴛᴇᴄᴛᴇᴅ 🔓**
-➖➖➖➖➖➖➖➖➖➖➖➖
-**🍊 ɴᴀᴍᴇ** : {message.from_user.mention}
-**🍅 ᴜsᴇʀ ɪᴅ** : {message.from_user.id}
-➖➖➖➖➖➖➖➖➖➖➖➖\n
-"""
+        msg += f"""Saya melihat **{message.from_user.mention}** merubah :"""
     if usernamebefore != message.from_user.username:
         usernamebefore = f"@{usernamebefore}" if usernamebefore else "NO USERNAME"
         usernameafter = (
@@ -38,13 +32,7 @@ async def chk_usr(_, message: Message):
             if message.from_user.username
             else "NO USERNAME"
         )
-        msg += """
-**🐻‍❄️ ᴄʜᴀɴɢᴇᴅ ᴜsᴇʀɴᴀᴍᴇ 🐻‍❄️**
-➖➖➖➖➖➖➖➖➖➖➖➖
-**🎭 ғʀᴏᴍ** : {bef}
-**🍜 ᴛᴏ** : {aft}
-➖➖➖➖➖➖➖➖➖➖➖➖\n
-""".format(bef=usernamebefore, aft=usernameafter)
+        msg += """\nUsername dari <b>{bef}</b> menjadi <b>{aft}</b>""".format(bef=usernamebefore, aft=usernameafter)
         await add_userdata(
             message.from_user.id,
             message.from_user.username,
@@ -52,13 +40,7 @@ async def chk_usr(_, message: Message):
             message.from_user.last_name,
         )
     if first_name != message.from_user.first_name:
-        msg += """
-**🪧 ᴄʜᴀɴɢᴇs ғɪʀsᴛ ɴᴀᴍᴇ 🪧**
-➖➖➖➖➖➖➖➖➖➖➖➖
-**🔐 ғʀᴏᴍ** : {bef}
-**🍓 ᴛᴏ** : {aft}
-➖➖➖➖➖➖➖➖➖➖➖➖\n
-""".format(
+        msg += """\nNama depan dari <b>{bef}</b> menjadi <b>{aft}</b>""".format(
             bef=first_name, aft=message.from_user.first_name
         )
         await add_userdata(
@@ -70,13 +52,7 @@ async def chk_usr(_, message: Message):
     if lastname_before != message.from_user.last_name:
         lastname_before = lastname_before or "NO LAST NAME"
         lastname_after = message.from_user.last_name or "NO LAST NAME"
-        msg += """
-**🪧 ᴄʜᴀɴɢᴇs ʟᴀsᴛ ɴᴀᴍᴇ 🪧**
-➖➖➖➖➖➖➖➖➖➖➖➖
-**🚏ғʀᴏᴍ** : {bef}
-**🍕 ᴛᴏ** : {aft}
-➖➖➖➖➖➖➖➖➖➖➖➖\n
-""".format(
+        msg += """\nNama belakang dari <b>{bef}</b> menjadi <b>{aft}</b>""".format(
             bef=lastname_before, aft=lastname_after
         )
         await add_userdata(
